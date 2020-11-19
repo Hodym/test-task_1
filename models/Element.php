@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "element".
@@ -17,8 +19,24 @@ use Yii;
  *
  * @property Category $category
  */
-class Element extends \yii\db\ActiveRecord
+class Element extends ActiveRecord
 {
+    
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                // если вместо метки времени UNIX используется datetime:
+                // 'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+    
     /**
      * {@inheritdoc}
      */
@@ -33,10 +51,17 @@ class Element extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'param_done', 'param_all', 'created_at', 'updated_at'], 'required'],
+            [['category_id', 'param_done', 'param_all'], 'required'],
             [['category_id', 'created_at', 'updated_at'], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
             [['description'], 'string'],
-            [['param_done', 'param_all'], 'number'],
+            [['param_all'], 'number'],
+            //[['param_done'], ],
+            [['param_done'], 'compare', 'compareAttribute' => 'param_all', 'operator' => '<=', 'type' => 'number'],
+            /*['param_done', 'required', 'when' => function($model) {
+                return $model->param_done <= $model->param_all && $model->param_done > 0;
+            }],*/
+            
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -48,12 +73,13 @@ class Element extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_id' => 'Category ID',
+            'categoryName' => 'Categories',
+            'category_id' => 'Categories',
             'description' => 'Description',
             'param_done' => 'Param Done',
             'param_all' => 'Param All',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            //'created_at' => 'Created At',
+            'updated_at' => 'Date updatet',
         ];
     }
 
@@ -66,4 +92,9 @@ class Element extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
+    
+    public function getCategoryName() {
+        return (isset($this->category) ? $this->category->name : ' не задана');
+    }
+    
 }

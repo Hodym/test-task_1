@@ -12,9 +12,9 @@ use johnitvn\ajaxcrud\BulkButtonWidget;
 
 $this->title = 'Categories';
 $this->params['breadcrumbs'][] = $this->title;
-
+//phpinfo();
+//echo Yii::$app->timeZone;
 CrudAsset::register($this);
-
 ?>
 <div class="category-index">
     <div id="ajaxCrudDatatable">

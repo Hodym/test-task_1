@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 /**
  * This is the model class for table "category".
  *
@@ -61,8 +62,8 @@ class Category extends ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            //'created_at' => 'Created At',
+            'updated_at' => 'Date updatet',
         ];
     }
 
@@ -74,5 +75,9 @@ class Category extends ActiveRecord
     public function getElements()
     {
         return $this->hasMany(Element::className(), ['category_id' => 'id']);
+    }
+    
+    public static function getList() {
+        return ArrayHelper::map(self::find()->all(), 'id', 'name');
     }
 }

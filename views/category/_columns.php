@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use kartik\datetime\DateTimePicker;
 
 return [
     [
@@ -26,11 +27,25 @@ return [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'updated_at',
         'format' => ['date', 'php:Y.m.d H:i:s'],
-        'filter' => \kartik\datetime\DateTimePicker::widget([
+        'filter' => DateTimePicker::widget([
             'model'=>$searchModel,
-            'attribute'=>'updated_at',
-            //'language' => 'ru',
-            //'dateFormat' => 'Y.m.d H:i:s',
+            'attribute'=>'up_picker',
+            'type' => DateTimePicker::TYPE_BUTTON,
+            'layout' => '{picker} {remove} {input}',
+            //'saveFormat' => 'php:U',
+            'options' => [
+                'type' => 'text',
+                'readonly' => true,
+                'class' => 'text-muted small',
+                'style' => 'border:none;background:none',
+                'placeholder' => 'Select operating time ...',
+            ],
+            'convertFormat' => true,
+            'pluginOptions' => [
+                'format' => 'yyyy.MM.dd hh:i:ss',
+                'todayHighlight' => true,
+                'autoclose' => true,
+            ],
         ]),
     ],
     [
