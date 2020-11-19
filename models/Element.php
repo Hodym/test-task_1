@@ -51,17 +51,13 @@ class Element extends ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'param_done', 'param_all'], 'required'],
+            [['name', 'category_id', 'param_done', 'param_all'], 'required'],
             [['category_id', 'created_at', 'updated_at'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
+            [['name'], 'string', 'max' => 512],
             [['description'], 'string'],
-            [['param_all'], 'number'],
-            //[['param_done'], ],
-            [['param_done'], 'compare', 'compareAttribute' => 'param_all', 'operator' => '<=', 'type' => 'number'],
-            /*['param_done', 'required', 'when' => function($model) {
-                return $model->param_done <= $model->param_all && $model->param_done > 0;
-            }],*/
-            
+            [['param_done', 'param_all'], 'number'],
+            [['param_done'], 'compare', 'compareAttribute' => 'param_all', 'operator' => '<=', 'type' => 'number'], 
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
         ];
     }
@@ -72,14 +68,15 @@ class Element extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'categoryName' => 'Categories',
-            'category_id' => 'Categories',
-            'description' => 'Description',
-            'param_done' => 'Param Done',
-            'param_all' => 'Param All',
+            'id' => Yii::t('main', 'ID'),
+            'name' => Yii::t('main', 'Name'),
+            //'categoryName' => 'Categories Name',
+            'category_id' => Yii::t('main', 'Category'),
+            'description' => Yii::t('main', 'Description'),
+            'param_done' => Yii::t('main', 'Param Done'),
+            'param_all' => Yii::t('main', 'Param All'),
             //'created_at' => 'Created At',
-            'updated_at' => 'Date updatet',
+            'updated_at' => Yii::t('main', 'Date updatet'),
         ];
     }
 

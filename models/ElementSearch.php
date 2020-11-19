@@ -22,7 +22,7 @@ class ElementSearch extends Element {
     public function rules() {
         return [
                 [['id', 'category_id', 'created_at', 'updated_at'], 'integer'],
-                [['description', 'categoryName', 'up_picker'], 'safe'],
+                [['name', 'description', 'categoryName', 'up_picker'], 'safe'],
                 [['param_done', 'param_all'], 'number'],
         ];
     }
@@ -54,9 +54,15 @@ class ElementSearch extends Element {
             'sort' => [
                 'attributes' => [
                     'id',
+                    'name',
                     'category_id',
                     'description',
                     'param_done',
+                    /*'param_done' => [
+                        'asc' => ['param_done' => SORT_ASC],
+                        'desc' => ['param_done' => SORT_DESC],
+                        'default' => SORT_DESC,
+                    ],*/
                     'param_all',
                     'updated_at' => [
                         'asc' => ['updated_at' => SORT_ASC],
@@ -86,6 +92,8 @@ class ElementSearch extends Element {
                 //'created_at' => $this->created_at,
                 //'updated_at' => $this->updated_at,
         ]);
+        
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         $query->andFilterWhere(['like', 'description', $this->description]);
 

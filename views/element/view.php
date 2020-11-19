@@ -11,12 +11,18 @@ use yii\widgets\DetailView;
         'model' => $model,
         'attributes' => [
             'id',
-            'category_id',
+            [
+                'attribute' => 'category_id',
+                'value'=> $model->categoryName,
+            ],
             'description:ntext',
             'param_done',
             'param_all',
-            'created_at',
-            'updated_at',
+            //'created_at',
+            [
+                'attribute' => 'updated_at',
+                'format' => ['date', 'php:Y.m.d H:i:s'],
+            ],
         ],
     ]) ?>
 

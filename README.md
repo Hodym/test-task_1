@@ -1,234 +1,193 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Basic Project Template</h1>
-    <br>
-</p>
+<h1 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:20pt">Тестовая задача по функционалу Yii2</span></h1>
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
+<h1 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:20pt">Вводная часть</span></h1>
 
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
+<h2 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:16pt">БД</span></h2>
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![ci-linux](https://github.com/yiisoft/yii2-app-basic/workflows/ci-linux/badge.svg)](https://github.com/yiisoft/yii2-app-basic/actions?query=workflow%3Aci-linux)
-[![ci-windows](https://github.com/yiisoft/yii2-app-basic/workflows/ci-windows/badge.svg)](https://github.com/yiisoft/yii2-app-basic/actions?query=workflow%3Aci-windows)
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Есть 2 таблицы:</span></p>
 
-DIRECTORY STRUCTURE
--------------------
+<p>&nbsp;</p>
 
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
+<ol>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">category</span></p>
+	</li>
+</ol>
 
+<p dir="ltr" style="margin-left: 36pt;"><strong>id</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11) AI</span></p>
 
+<p dir="ltr" style="margin-left: 36pt;"><strong>name</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, varchar(512)</span></p>
 
-REQUIREMENTS
-------------
+<p dir="ltr" style="margin-left: 36pt;"><strong>created_at</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11)</span></p>
 
-The minimum requirement by this project template that your Web server supports PHP 5.6.0.
+<p dir="ltr" style="margin-left: 36pt;"><strong>updated_at</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11)</span></p>
 
+<p>&nbsp;</p>
 
-INSTALLATION
-------------
+<ol start="2">
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">element</span></p>
+	</li>
+</ol>
 
-### Install via Composer
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>id</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11) AI</span></p>
 
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>name</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, varchar(512)</span></p>
 
-You can then install this project template using the following command:
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>category_id</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11) (внешний ключ, таблица category - id)</span></p>
 
-~~~
-composer create-project --prefer-dist yiisoft/yii2-app-basic basic
-~~~
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>description</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, text</span></p>
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>param_done</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, double(5,2)</span></p>
 
-~~~
-http://localhost/basic/web/
-~~~
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>param_all</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, double(5,2)</span></p>
 
-### Install from an Archive File
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>created_at</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11)</span></p>
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span><strong>updated_at</strong><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">, int(11)</span></p>
 
-Set cookie validation key in `config/web.php` file to some random secret string:
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">&nbsp;&nbsp; &nbsp;</span></p>
 
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
-```
+<h2 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:16pt">Окружение</span></h2>
 
-You can then access the application through the following URL:
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Yii2 полностью установлен и настроен, доступны дебагер и gii.</span></p>
 
-~~~
-http://localhost/basic/web/
-~~~
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Также, установлены пакеты:</span></p>
 
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><a href="https://github.com/johnitvn/yii2-ajaxcrud" style="text-decoration:none;"><u>https://github.com/johnitvn/yii2-ajaxcrud</u></a></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><a href="https://github.com/kartik-v/yii2-widget-datetimepicker" style="text-decoration:none;"><u>https://github.com/kartik-v/yii2-widget-datetimepicker</u></a></p>
+	</li>
+</ul>
 
-### Install with Docker
+<p>&nbsp;</p>
 
-Update your vendor packages
+<h1 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:20pt">Описание задачи</span></h1>
 
-    docker-compose run --rm php composer update --prefer-dist
-    
-Run the installation triggers (creating cookie validation code)
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Необходимо создать для 2х таблиц функционал CRUD. На выходе должны получиться 2 страницы. Создание, редактирование, просмотр и удаление должны осуществляться в модальных окнах (см. описание </span><a href="https://github.com/johnitvn/yii2-ajaxcrud" style="text-decoration:none;"><u>johnitvn/yii2-ajaxcrud</u></a><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">). Также, должна присутствовать обработка не ajax запросов.</span></p>
 
-    docker-compose run --rm php composer install    
-    
-Start the container
+<p>&nbsp;</p>
 
-    docker-compose up -d
-    
-You can then access the application through the following URL:
+<h2 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:16pt">Страница Category</span></h2>
 
-    http://127.0.0.1:8000
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Список должен содержать поля:</span></p>
 
-**NOTES:** 
-- Minimum required Docker engine version `17.04` for development (see [Performance tuning for volume mounts](https://docs.docker.com/docker-for-mac/osxfs-caching/))
-- The default configuration uses a host-volume in your home directory `.docker-composer` for composer caches
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">id</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">название (name)</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">последнее изменение (updated_at, форматирован в Y.m.d H:i:s)</span></p>
+	</li>
+</ul>
 
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">По каждому полю должны работать сортировки и фильтры. Фильтр по полю последнее изменение - вида &ldquo;не позднее, чем указано&rdquo;, datetimepicker (</span><a href="https://github.com/kartik-v/yii2-widget-datetimepicker" style="text-decoration:none;"><u>kartik-v/yii2-widget-datetimepicker</u></a><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">).</span></p>
 
-CONFIGURATION
--------------
+<p>&nbsp;</p>
 
-### Database
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Поля created_at и updated_at должны соответственно заполняться timestamp значениями при создании и редактировании элементов.</span></p>
 
-Edit the file `config/db.php` with real data, for example:
+<h2 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:16pt">Страница Elements</span></h2>
 
-```php
-return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
-```
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Список должен содержать поля:</span></p>
 
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
-
-
-TESTING
--------
-
-Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
-By default there are 3 test suites:
-
-- `unit`
-- `functional`
-- `acceptance`
-
-Tests can be executed by running
-
-```
-vendor/bin/codecept run
-```
-
-The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
-tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
-they perform testing in real browser. 
-
-
-### Running  acceptance tests
-
-To execute acceptance tests do the following:  
-
-1. Rename `tests/acceptance.suite.yml.example` to `tests/acceptance.suite.yml` to enable suite configuration
-
-2. Replace `codeception/base` package in `composer.json` with `codeception/codeception` to install full featured
-   version of Codeception
-
-3. Update dependencies with Composer 
-
-    ```
-    composer update  
-    ```
-
-4. Download [Selenium Server](http://www.seleniumhq.org/download/) and launch it:
-
-    ```
-    java -jar ~/selenium-server-standalone-x.xx.x.jar
-    ```
-
-    In case of using Selenium Server 3.0 with Firefox browser since v48 or Google Chrome since v53 you must download [GeckoDriver](https://github.com/mozilla/geckodriver/releases) or [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) and launch Selenium with it:
-
-    ```
-    # for Firefox
-    java -jar -Dwebdriver.gecko.driver=~/geckodriver ~/selenium-server-standalone-3.xx.x.jar
-    
-    # for Google Chrome
-    java -jar -Dwebdriver.chrome.driver=~/chromedriver ~/selenium-server-standalone-3.xx.x.jar
-    ``` 
-    
-    As an alternative way you can use already configured Docker container with older versions of Selenium and Firefox:
-    
-    ```
-    docker run --net=host selenium/standalone-firefox:2.53.0
-    ```
-
-5. (Optional) Create `yii2basic_test` database and update it by applying migrations if you have them.
-
-   ```
-   tests/bin/yii migrate
-   ```
-
-   The database configuration can be found at `config/test_db.php`.
-
-
-6. Start web server:
-
-    ```
-    tests/bin/yii serve
-    ```
-
-7. Now you can run all available tests
-
-   ```
-   # run all available tests
-   vendor/bin/codecept run
-
-   # run acceptance tests
-   vendor/bin/codecept run acceptance
-
-   # run only unit and functional tests
-   vendor/bin/codecept run unit,functional
-   ```
-
-### Code coverage support
-
-By default, code coverage is disabled in `codeception.yml` configuration file, you should uncomment needed rows to be able
-to collect code coverage. You can run your tests and collect coverage with the following command:
-
-```
-#collect coverage for all tests
-vendor/bin/codecept run --coverage --coverage-html --coverage-xml
-
-#collect coverage only for unit tests
-vendor/bin/codecept run unit --coverage --coverage-html --coverage-xml
-
-#collect coverage for unit and functional tests
-vendor/bin/codecept run functional,unit --coverage --coverage-html --coverage-xml
-```
-
-You can see code coverage output under the `tests/_output` directory.
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">id</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">название (name)</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">категория (название из связанной category)</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">описание (обрезанный до 100та символов description</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Степень завершения (bootstrap progress bar, сколько param_done / param_all в процентах)</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">последнее изменение (updated_at, форматирован в Y.m.d H:i:s)</span></p>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Должны работать все сортировки:</span></p>
+
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Сортировка по категории - по name из category.</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Сортировка по степень завершения - по указанному значению (см. описание поля выше)</span></p>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Фильтры:</span></p>
+
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">категория - выпадающий список названий категория</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">описание, название - классический like-запрос</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">степень завершения - число %, выборка - значение поля не менее чем указанное значение</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">последнее изменение - &ldquo;не позднее, чем указано&rdquo;, datetimepicker (</span><a href="https://github.com/kartik-v/yii2-widget-datetimepicker" style="text-decoration:none;"><u>kartik-v/yii2-widget-datetimepicker</u></a><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">)</span></p>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Поля created_at и updated_at должны соответственно заполняться timestamp значениями при создании и редактировании элементов.</span></p>
+
+<h2 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:16pt">Валидация</span></h2>
+
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Category:</span></p>
+
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">длина названия</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">проверки по типам данных</span></p>
+	</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Elements</span></p>
+
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">длина названия, описания</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Существование category</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">param_done &lt;= param_all</span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">проверки по типам данных</span></p>
+	</li>
+</ul>
+
+<h2 dir="ltr"><span style="background-color:transparent; color:#000000; font-family:arial; font-size:16pt">Прочее</span></h2>
+
+<p><span style="background-color:transparent; color:#000000; font-family:arial; font-size:11pt">Все названия полей, подписи, названия страниц, хлебные крошки и т.д. &mdash; должны содержаться в языковых файлах (i18n). Язык по-умолчанию указан (ru)</span></p>
+
+<p>&nbsp;</p>

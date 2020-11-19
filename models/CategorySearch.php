@@ -86,34 +86,7 @@ class CategorySearch extends Category
         if ( $this->up_picker !== '' && !is_null($this->up_picker) ) {
             $up_time = str_replace('.', '-', $this->up_picker);
             $query->andFilterWhere(['<', 'updated_at', Yii::$app->formatter->format($up_time, 'timestamp') - 10800]);
-            
-            //$query->andFilterWhere(['<', 'updated_at', $this->updated_at]);
-      
-            
-            /*$query->andFilterWhere(
-                [
-                    '>',
-                    new \yii\db\Expression('DATE_FORMAT(updated_at, "%Y.%c.%d %H:%i:%k")'),
-                    date('Y.m.d H:i:s', strtotime($this->up_picker)),
-                ]
-            );*/
-            /*$query->andFilterWhere(
-                [
-                    '>',
-                    new \yii\db\Expression('DATE_FORMAT(updated_at, "%Y.%c.%d %H:%i:%k")'),
-                    date('Y.m.d H:i:s', strtotime($this->up_picker)),
-                ]
-            );*/
-            //$query->andFilterWhere(['<=', 'updated_at', Yii::$app->getFormatter()->asTimestamp($this->up_picker)]);
-        } 
-        
-        /*if ( $this->updated_at !== '' && !is_null($this->updated_at) ) {
-
-            $query->andFilterWhere(['<', 'updated_at', $this->updated_at]);
-
-        }*/
-        
-        //$query->andFilterWhere(['>', 'updated_at', Yii::$app->formatter->asTimestamp($this->up_picker)]);
+        }    
 
         $query->andFilterWhere(['like', 'name', $this->name]);
 

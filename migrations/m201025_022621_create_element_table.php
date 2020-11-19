@@ -17,6 +17,7 @@ class m201025_022621_create_element_table extends Migration
     {
         $this->createTable('{{%element}}', [
             'id' => $this->primaryKey(),
+            'name' => $this->string(512)->notNull(),
             'category_id' => $this->integer()->notNull(),
             'description' => $this->text(),
             'param_done' => $this->double(5,2)->notNull(),

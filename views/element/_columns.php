@@ -19,6 +19,10 @@ return [
     ],
     [
         'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'name',
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'category_id',
         'value'=> 'categoryName',
         'filter'=> Category::getList(),
@@ -37,7 +41,7 @@ return [
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'param_done',
-        'label' => 'Progress',
+        'label' => Yii::t('main', 'Progress'),
         'value' => function ($model) {
             $prots = floor($model->param_done*100/$model->param_all);
             return \yii\bootstrap\Progress::widget([
@@ -81,7 +85,7 @@ return [
                 'readonly' => true,
                 'class' => 'text-muted small',
                 'style' => 'border:none;background:none',
-                'placeholder' => 'Select operating time ...',
+                'placeholder' => Yii::t('main', 'Select operating time'),
             ],
             'convertFormat' => true,
             'pluginOptions' => [
@@ -98,14 +102,14 @@ return [
         'urlCreator' => function($action, $model, $key, $index) { 
                 return Url::to([$action,'id'=>$key]);
         },
-        'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
-        'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
-        'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 
+        'viewOptions'=>['role'=>'modal-remote','title'=>Yii::t('kvgrid', 'View'),'data-toggle'=>'tooltip'],
+        'updateOptions'=>['role'=>'modal-remote','title'=>Yii::t('kvgrid', 'Update'), 'data-toggle'=>'tooltip'],
+        'deleteOptions'=>['role'=>'modal-remote','title'=>Yii::t('kvgrid', 'Delete'), 
                           'data-confirm'=>false, 'data-method'=>false,// for overide yii data api
                           'data-request-method'=>'post',
                           'data-toggle'=>'tooltip',
-                          'data-confirm-title'=>'Are you sure?',
-                          'data-confirm-message'=>'Are you sure want to delete this item'], 
+                          'data-confirm-title'=>Yii::t('kvgrid', 'Are you sure?'),
+                          'data-confirm-message'=>Yii::t('kvgrid', 'Are you sure you want to delete this item')], 
     ],
 
 ];   

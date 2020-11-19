@@ -60,10 +60,10 @@ class Category extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => Yii::t('main', 'ID'),
+            'name' => Yii::t('main', 'Name'),
             //'created_at' => 'Created At',
-            'updated_at' => 'Date updatet',
+            'updated_at' => Yii::t('main', 'Date updatet'),
         ];
     }
 

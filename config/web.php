@@ -6,7 +6,12 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        [
+            'class' => 'app\components\LanguageSelector',
+        ],
+    ],
     'language' => 'ru-RU',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -14,7 +19,7 @@ $config = [
     ],
     'modules' => [
         'gridview' =>  [
-            'class' => '\kartik\grid\Module'
+            'class' => '\kartik\grid\Module',
         ],
         
     ],
@@ -55,6 +60,35 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
+            ],
+        ],
+        'i18n' => [
+            'translations' => [
+                'app*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                ],
+                'menu' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                ],
+                'main' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                ],
+                'kvgrid' => [
+                     'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                 ],
+                'controllers' => [
+                     'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en-US',
+                 ],
             ],
         ],
     ],

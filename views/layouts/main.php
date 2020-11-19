@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -25,7 +26,7 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+    
 <div class="wrap">
     <?php
     NavBar::begin([
@@ -35,19 +36,36 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    
+    /*echo Html::beginForm(['/site/language']); 
+        echo Html::dropDownList('language', Yii::$app->language, ['en-US' => 'English', 'ru-RU' => 'Русский']);
+        echo Html::submitButton('Change');
+    Html::endForm();*/
+            
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Categories', 'url' => ['/category/index']],
-            ['label' => 'Elements', 'url' => ['/element/index']],
+            ['label' => Yii::t('menu', 'Home'), 'url' => ['/site/index']],
+            ['label' => Yii::t('menu', 'Categories'), 'url' => ['/category/index']],
+            ['label' => Yii::t('menu', 'Elements'), 'url' => ['/element/index']],
+            [
+                
+                'label' => Yii::$app->language == 'ru-RU' ? 'Русский' : 'English',
+                'items' => [
+                    
+                    ['label' => 'English', 'url' => Url::to(['/site/language', 'language' => 'en-US'])],
+                    ['label' => 'Русский', 'url' => Url::to(['/site/language', 'language' => 'ru-RU'])],
+                ],
+            ],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => Yii::t('menu', 'Login'), 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    Yii::t('menu', 'Logout ({username})', [
+                         'username' => Yii::$app->user->identity->username
+                    ]),
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
